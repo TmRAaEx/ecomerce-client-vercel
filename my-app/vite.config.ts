@@ -6,6 +6,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
     plugins: [react(), tsconfigPaths(), tailwindcss()],
+    base: "/",
+    build:{
+        chunkSizeWarningLimit: 1000,
+    },
     resolve: {
         alias: {
             '@components': '/src/components',
