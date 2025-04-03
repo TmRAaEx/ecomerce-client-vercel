@@ -3,14 +3,26 @@ import CartIcon from "@ui/CartIcon.tsx";
 import {useContext} from "react";
 import {CartContext} from "@context/CartContext.ts";
 import Cookies from "js-cookie";
+import SearchBar from "@ui/SearchBar.tsx";
 
 export default function ShopHeader() {
 
     const customer = Cookies.get("customer");
     const {getCartTotalItems} = useContext(CartContext);
+
+
     return (
         <div className={"w-full bg-mainBG h-25 flex flex-col justify-between"}>
-            <p className={"flex w-fit h-fit text-white text-2xl p-2"}>Store</p>
+            <div className={"w-full flex-grow flex justify-evenly align-center"}>
+
+                <p className={"flex w-fit h-fit text-white text-2xl p-2"}>Store</p>
+
+
+                <SearchBar/>
+
+            </div>
+
+
             <nav className={"bg-accent w-full flex-grow flex justify-evenly align-center"}>
                 <NavLink to={"/products"}><p className={"text-white text-lg"}>Products</p></NavLink>
                 <NavLink to={"/categories"}><p className={"text-white text-lg"}>Categories</p></NavLink>
