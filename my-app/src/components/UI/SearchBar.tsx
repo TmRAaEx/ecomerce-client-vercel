@@ -15,8 +15,8 @@ export default function SearchBar() {
             const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
                 params: {
                     q: search,
-                    key: "AIzaSyBxTTbCE9gFFhJRWWlGJdj76X_tDQNcP9s",
-                    cx: "65c403c4122af4050"
+                    key: import.meta.env.VITE_GOOGLE_API_KEY,
+                    cx: import.meta.env.VITE_SEARCH_ENGINE_ID,
                 }
             });
             console.log(response.data);
@@ -24,7 +24,6 @@ export default function SearchBar() {
             console.log(err);
         }
     }
-
 
 
     // modified version of https://flowbite.com/docs/forms/search-input/#search-bar-example
