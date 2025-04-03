@@ -5,9 +5,25 @@ import SearchIcon from "../../assets/search.svg?react"
 
 export default function SearchBar() {
 
+    type SearchResult = {
+        title: string;
+        link: string;
+        displayLink: string;
+        formattedUrl: string;
+        htmlFormattedUrl: string;
+        htmlSnippet: string;
+        htmlTitle: string;
+        kind: string;
+        snippet: string;
+        pagemap?: {
+            cse_thumbnail?: { src: string; width: string; height: string }[];
+            metatags?: Record<string, string>[];
+            cse_image?: { src: string }[];
+        };
+    };
 
     const [search, setSearch] = useState("");
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState<SearchResult[]>([]);
 
 
     const handleSearch = async (e: FormEvent) => {
@@ -27,8 +43,10 @@ export default function SearchBar() {
             if (data.items && data.items.length > 0) {
                 setResults(data.items)
                 return
+            } else {
+                setResults([])
+
             }
-            setResults([])
 
         } catch (err) {
             console.log(err);
@@ -58,11 +76,11 @@ export default function SearchBar() {
             </div>
         </form>
 
-        {results.length > 0 && (<>
-            {results.map((item) => {
-                item.title
-            })}
+        <ul>{results.length > 0 && (<>
+            {results.map((item) =>
+                <p>{item.title}</p>
+            )}
         </>)
-        }
+        }</ul>
     </>
 }
