@@ -1,15 +1,10 @@
 import {OrderCardHeader} from "@components/Admin/Order/OrderHead.tsx";
 import {OrderItemRow} from "@components/Admin/Order/OrderItem.tsx";
 import {OrderCardFooter} from "@components/Admin/Order/OrderFooter.tsx";
-import {useState} from "react";
 import IOrder from "@interfaces/IOrder.ts";
 
 export default function LoadingOrder() {
     const isExpanded = false;
-    const editingState = useState({
-        id: null,
-        quantity: {},
-    })
 
     const order: IOrder = {
         id: null,
@@ -60,15 +55,6 @@ export default function LoadingOrder() {
                         <OrderItemRow
                             key={item.id}
                             item={item}
-                            editingState={editingState}
-                            setEditingState={() => {
-                            }}
-                            updateQuantity={() => {
-                            }}
-                            saveQuantity={() => {
-                            }}
-                            deleteOrderItem={() => {
-                            }}
                         />
                     ))}
                     </tbody>
@@ -79,8 +65,6 @@ export default function LoadingOrder() {
                 order={order}
                 isExpanded={isExpanded}
                 toggleExpanded={() => {
-                }}
-                onDeleteOrder={() => {
                 }}
             />
         </div>

@@ -5,7 +5,7 @@ import {OrderItemRow} from "@components/Admin/Order/OrderItem.tsx";
 import ConfirmModal from "@components/ConfirmModal.tsx";
 import {OrderCardHeader} from "@components/Admin/Order/OrderHead.tsx";
 import {OrderCardFooter} from "@components/Admin/Order/OrderFooter.tsx";
-import {updateOrderItem, deleteOrderItem} from "@hooks/useOrderItem.ts";
+import {deleteOrderItem} from "@hooks/useOrderItem.ts";
 
 interface OrderProps {
     order: IOrder;
@@ -14,30 +14,12 @@ interface OrderProps {
 
 }
 
-export default function OrderCard({order, deleteOrder, updateOrder}: OrderProps) {
-    const [editingState, setEditingState] = useState<{ id: string | null; quantity: { [key: string]: number } }>({
-        id: null,
-        quantity: {},
-    });
+export default function OrderCard({order, deleteOrder}: OrderProps) {
+
 
     const [isExpanded, setIsExpanded] = useState(false);
     const [deleteTarget, setDeleteTarget] = useState<{ id: number; type: "order" | "orderItem" } | null>(null);
 
-    const updateQuantity = async (id: IOrderItem["id"], value: number) => {
-        setEditingState((prev) => ({
-            ...prev,
-            quantity: {...prev.quantity, [id as number]: Math.max(1, value)},
-        }));
-    };
-
-    const saveQuantity = async (id: IOrderItem["id"]) => {
-        order.order_items = order.order_items.map((item) =>
-            item.id === id ? {...item, quantity: editingState.quantity[id as number]} : item
-        );
-        await updateOrderItem(id, editingState.quantity[id as number])
-        updateOrder(order)
-        setEditingState({id: null, quantity: {}});
-    };
 
     const confirmDelete = () => {
         if (!deleteTarget) return;
