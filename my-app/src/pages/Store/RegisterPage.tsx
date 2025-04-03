@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router";
-import apiClient from "../../services/requests"; // Update the path to your API client if necessary
+import apiClient from "../../services/requests";
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ const RegisterPage = () => {
         setError(null); // Clear previous errors
 
         // Simple validation
-        for (let key in formData) {
+        for (const key in formData) {
             if (!formData[key as keyof typeof formData]) {
                 setError("Please fill in all fields.");
                 return;
@@ -43,7 +43,7 @@ const RegisterPage = () => {
 
             // Redirect to login page or dashboard
             navigate("/login");
-        } catch (err) {
+        } catch{
             setError("There was an error during registration. Please try again.");
         }
     };
