@@ -74,6 +74,8 @@ export default function Checkout() {
             orderID: orderID
         });
 
+        console.log("data",data.clientSecret)
+
         return data.clientSecret;
     }, []);
 
