@@ -12,7 +12,7 @@ export default function ProductCard({product}: { product: IProduct }) {
             className="relative flex w-full p-3 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md ">
             {Number(discount) > 0 && (
                 <span
-                    className="absolute top-2 left-2 bg-red-500 text-white text-md font-bold px-2 py-1 rounded-full z-999">
+                    className="absolute top-2 left-2 bg-red-500 text-white text-md font-bold px-2 py-1 rounded-full z-20">
             -{discount}%
         </span>
             )}

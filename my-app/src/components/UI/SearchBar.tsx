@@ -113,7 +113,7 @@ export default function SearchBar() {
                                     <img
                                         src={image}
                                         alt={result.title}
-                                        className="w-16 h-16 object-cover rounded-md flex-shrink-0"
+                                        className="w-16 h-16 object-scale-down rounded-md flex-shrink-0"
                                     />
                                 )}
                                 <div>
