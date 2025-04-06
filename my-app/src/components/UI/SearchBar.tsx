@@ -1,10 +1,8 @@
-import {FormEvent, useState} from "react";
+import {FormEvent, useState, useRef, ChangeEvent} from "react";
 import axios from "axios";
-import SearchIcon from "../../assets/search.svg?react"
-
+import SearchIcon from "../../assets/search.svg?react";
 
 export default function SearchBar() {
-
     type SearchResult = {
         title: string;
         link: string;
@@ -24,63 +22,117 @@ export default function SearchBar() {
 
     const [search, setSearch] = useState("");
     const [results, setResults] = useState<SearchResult[]>([]);
+    const [isFocused, setIsFocused] = useState(false);
 
+    const containerRef = useRef<HTMLDivElement>(null);
+
+
+    const searchFunc = async (searchTerm: string = search) => {
+        const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
+            params: {
+                q: searchTerm,
+                key: import.meta.env.VITE_GOOGLE_API_KEY,
+                cx: import.meta.env.VITE_SEARCH_ENGINE_ID,
+                num: 10,
+            },
+
+        });
+        const data = response.data;
+        console.log(data)
+        setResults(data.items || []);
+
+
+    }
 
     const handleSearch = async (e: FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
-                params: {
-                    q: search,
-                    key: import.meta.env.VITE_GOOGLE_API_KEY,
-                    cx: import.meta.env.VITE_SEARCH_ENGINE_ID,
-                    num: 10
-                }
-            });
-            const data = response.data;
-
-            console.log(data)
-            if (data.items && data.items.length > 0) {
-                setResults(data.items)
-                return
-            } else {
-                setResults([])
-
-            }
-
+            await searchFunc();
         } catch (err) {
             console.log(err);
         }
+    };
+
+    const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+        const {value} = e.target;
+
+        setSearch(value);
+
+
+        if (value.length < 1) {
+            setResults([]);
+        }
+
+        if (value.length >= 3) {
+            await searchFunc(value);
+        }
     }
 
-
-    // modified version of https://flowbite.com/docs/forms/search-input/#search-bar-example
-    return <>
-        <form className="max-w-3xl w-[50%] mx-auto my-auto" onSubmit={handleSearch}>
-            <label htmlFor="default-search"
-                   className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-            <div className="relative">
-                <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <SearchIcon/>
-                </div>
-                <input type="search" id="default-search"
-                       className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       placeholder="Search..."
-                       value={search}
-                       onChange={e => setSearch(e.target.value)}
+    return (
+        <div
+            className="w-full flex flex-col items-center gap-6 py-1 relative z-50"
+            ref={containerRef}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => {
+                setTimeout(() => {
+                    if (!containerRef.current?.contains(document.activeElement)) {
+                        setIsFocused(false);
+                    }
+                }, 100);
+            }}
+            tabIndex={-1}
+        >
+            <form
+                onSubmit={handleSearch}
+                className="search flex bg-white h-14 w-[80%] rounded-xl items-center px-4 shadow-md gap-4"
+            >
+                <SearchIcon/>
+                <input
+                    type="search"
+                    value={search}
+                    onChange={handleChange}
+                    placeholder="Search..."
+                    className="flex-1 text-md bg-transparent outline-none text-gray-700 placeholder-gray-400"
                 />
-
-                <button type="submit"
-                        className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search
+                <button
+                    type="submit"
+                    className="bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700 transition-colors"
+                >
+                    Search
                 </button>
-            </div>
-        </form>
+            </form>
 
-        <ul>{results.length > 0 && (<>
-            {results.map((item) =>
-                <p>{item.title}</p>
+            {results.length > 0 && isFocused && (
+                <ul className="absolute top-[65px] w-[80%] bg-white rounded-xl shadow-lg divide-y divide-gray-200 max-h-96 overflow-y-auto z-40">
+                    {results.map((result, idx) => {
+                        const image = result.pagemap?.cse_image?.[0]?.src;
+
+                        return (
+                            <li key={idx} className="p-4 hover:bg-gray-50 transition flex gap-4 items-start">
+                                {image && (
+                                    <img
+                                        src={image}
+                                        alt={result.title}
+                                        className="w-16 h-16 object-cover rounded-md flex-shrink-0"
+                                    />
+                                )}
+                                <div>
+                                    <a
+                                        href={result.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-700 font-semibold hover:underline"
+                                    >
+                                        {result.title}
+                                    </a>
+                                    <p className="text-sm text-gray-500">{result.displayLink}</p>
+                                </div>
+                            </li>
+                        );
+                    })}
+                </ul>
+
             )}
-        </>)
-        }</ul>
-    </>
+        </div>
+    );
 }

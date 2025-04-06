@@ -13,7 +13,7 @@ export default function ShopHeader() {
 
     return (
         <div className={"w-full bg-mainBG h-25 flex flex-col justify-between"}>
-            <div className={"w-full flex-grow flex justify-evenly align-center"}>
+            <div className={"w-full grid grid-cols-3 align-center "}>
 
                 <p className={"flex w-fit h-fit text-white text-2xl p-2"}>Store</p>
 
