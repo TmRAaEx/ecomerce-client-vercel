@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/login</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/signup</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/cart</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/6</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/18</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/19</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/23</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/24</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/25</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/26</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/27</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/28</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/29</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/32</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/products/33</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/phones</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/furniture</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/gaming</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/food</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/cars</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/gardening</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://ecomerce-client-vercel-arwp.vercel.app/categories/toys</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

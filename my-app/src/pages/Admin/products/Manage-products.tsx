@@ -4,7 +4,7 @@ import {SubmitButton} from "@ui/Buttons.tsx";
 import {useState} from "react";
 import ProductForm from "@components/Admin/Products/ProductForm.tsx";
 import {IProduct} from "@interfaces/IProduct.ts";
-import ConfirmModal from "@components/ConfirmModal.tsx";
+import ConfirmModal from "@ui/ConfirmModal.tsx";
 
 
 export default function ManageProducts() {

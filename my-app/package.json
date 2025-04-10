@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "generateSiteMap": "node ./public/generateSiteMap.js",
+    "build": " npm run generateSiteMap && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -15,9 +16,12 @@
     "@tailwindcss/vite": "^4.0.12",
     "@types/js-cookie": "^3.0.6",
     "axios": "^1.8.2",
+    "dotenv": "^16.4.7",
     "js-cookie": "^3.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-router": "^7.3.0",
     "tailwindcss": "^4.0.12",
     "vite-plugin-tsconfig-paths": "^1.4.1"

@@ -2,7 +2,7 @@ import IOrder from "@interfaces/IOrder.ts";
 import {useState} from "react";
 import IOrderItem from "@interfaces/IOrderItem.ts";
 import {OrderItemRow} from "@components/Admin/Order/OrderItem.tsx";
-import ConfirmModal from "@components/ConfirmModal.tsx";
+import ConfirmModal from "@ui/ConfirmModal.tsx";
 import {OrderCardHeader} from "@components/Admin/Order/OrderHead.tsx";
 import {OrderCardFooter} from "@components/Admin/Order/OrderFooter.tsx";
 import {deleteOrderItem} from "@hooks/useOrderItem.ts";

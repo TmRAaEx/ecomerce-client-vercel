@@ -4,7 +4,7 @@ import {ICustomer} from "@interfaces/ICustomer.ts";
 import {FormEvent, useState} from "react";
 import {SubmitButton} from "@ui/Buttons.tsx";
 import CustomerForm from "@components/Admin/customers/CustomerForm.tsx";
-import ConfirmModal from "@components/ConfirmModal.tsx";
+import ConfirmModal from "@ui/ConfirmModal.tsx";
 
 export default function ManageCustomers() {
     const {customers, loading, error, updateCustomer, deleteCustomer, createCustomer} = useCustomers();
