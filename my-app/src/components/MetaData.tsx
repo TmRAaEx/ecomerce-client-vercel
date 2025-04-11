@@ -9,6 +9,7 @@ export default function MetaData({title, description}: MetaDataProps) {
 
 
 
+
     return (
         <Helmet>
             <title data-rh={"true"}>{title} | E-commerce</title>
