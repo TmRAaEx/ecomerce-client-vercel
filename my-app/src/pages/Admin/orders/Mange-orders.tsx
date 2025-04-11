@@ -6,7 +6,7 @@ import {SubmitButton} from "@ui/Buttons.tsx";
 export default function ManageOrders() {
     const {orders = [], error, loading, deleteOrder, updateOrder, refreshOrders} = useOrders()
 
-
+    const loadingOrders = [...Array(10).keys()];
     if (error) return <>{error}</>
 
 
@@ -16,9 +16,11 @@ export default function ManageOrders() {
         </div>
         <ul className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 mx-auto">
             {loading && orders.length === 0 && (
-                <li className="col-span-full">
-                    <LoadingOrder/>
-                </li>
+                loadingOrders.map((order) => (
+                    <li key={order}>
+                        <LoadingOrder/>
+                    </li>
+                ))
             )}
 
             {orders?.map((order) => (
