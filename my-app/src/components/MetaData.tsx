@@ -6,11 +6,15 @@ interface MetaDataProps {
 }
 
 export default function MetaData({title, description}: MetaDataProps) {
+
+    console.log("title: ", title, "description: ", description);
+    // Loggas ssom det ska men ändrar aldrig taggen på specifikt products/:id
+
     return (
         <Helmet>
-            <title>{title} | E-commerce</title>
+            <title data-rh={"true"}>{title} | E-commerce</title>
             <link rel="canonical" href={window.location.href}/>
-            <meta name={"description"} content={description} />
+            <meta name="description" content={description} data-rh={"true"}/>
         </Helmet>
-    )
+    );
 }
