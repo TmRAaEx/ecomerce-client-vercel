@@ -7,8 +7,7 @@ interface MetaDataProps {
 
 export default function MetaData({title, description}: MetaDataProps) {
 
-    console.log("title: ", title, "description: ", description);
-    // Loggas ssom det ska men ändrar aldrig taggen på specifikt products/:id
+
 
     return (
         <Helmet>

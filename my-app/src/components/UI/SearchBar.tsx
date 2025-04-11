@@ -29,6 +29,7 @@ export default function SearchBar() {
 
     const searchFunc = async (searchTerm: string = search) => {
         const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
+            // Bör egentligen köras via express backend som proxy för att dölja nycklarna
             params: {
                 q: searchTerm,
                 key: import.meta.env.VITE_GOOGLE_API_KEY,
@@ -108,7 +109,7 @@ export default function SearchBar() {
                         const image = result.pagemap?.cse_image?.[0]?.src;
 
                         return (
-                            <li key={idx} className="p-4 hover:bg-gray-50 transition flex gap-4 items-start">
+                            <li key={idx} className="p-4 hover:bg-gray-50 transition flex gap-4 items-center">
                                 {image && (
                                     <img
                                         src={image}
@@ -121,11 +122,10 @@ export default function SearchBar() {
                                         href={result.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-blue-700 font-semibold hover:underline"
+                                        className="text-black font-semibold hover:underline"
                                     >
                                         {result.title}
                                     </a>
-                                    <p className="text-sm text-gray-500">{result.displayLink}</p>
                                 </div>
                             </li>
                         );

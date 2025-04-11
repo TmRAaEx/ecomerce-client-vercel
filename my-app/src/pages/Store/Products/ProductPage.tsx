@@ -34,7 +34,8 @@ export default function ProductPage() {
             title={product?.name || "Loading..."}
             description={product?.description || "Loading product data..."}
         />
-        {/*Meta datan ändras aldrig från loading trots att den ändras i MetaData componenten vilket bevisas av en console.log*/}
+        {/*Meta datan ändras aldrig från loading trots att den ändras i MetaData componenten*/}
+        {/*Resolved kinda: Fungerar på deployade /buildade sidan men inte i dev mode. Troligen så gör vite npån skum dev cache*/}
         {product && (
             <>
                 <PageContainer className={"bg-white p-3 gap-3 max-w-xl lg:max-w-3xl mx-auto"}>
